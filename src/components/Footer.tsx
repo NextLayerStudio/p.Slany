@@ -10,6 +10,10 @@ const quickLinks = [
 
 const serviceLinks = [
   {
+    href: "/sluzby/antikorozna-ochrana-vozidiel",
+    label: "Antikorózna ochrana vozidiel",
+  },
+  {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",
     label: "Dovoz áut z Nemecka a zahraničia",
   },
@@ -18,12 +22,8 @@ const serviceLinks = [
     label: "Kontrola jazdených áut pred kúpou",
   },
   {
-    href: "/sluzby/sprostredkovanie-predaja-vozidiel",
-    label: "Sprostredkovanie predaja",
-  },
-  {
-    href: "/sluzby/odtahova-sluzba",
-    label: "Odťahová služba a preprava vozidiel",
+    href: "/sluzby/preprava-a-odtah-vozidiel",
+    label: "Preprava a odťah vozidiel",
   },
 ];
 

@@ -1,9 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+const DOVOZ_NEMECKO_PATH = "/sluzby/dovoz-aut-z-nemecka-a-zahranicia";
+const KONTROLA_JAZDENYCH_PATH = "/sluzby/kontrola-jazdenych-aut-pred-kupou";
+
 const services = [
+  {
+    href: "/sluzby/antikorozna-ochrana-vozidiel",
+    label: "Antikorózna ochrana vozidiel",
+  },
   {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",
     label: "Dovoz áut z Nemecka a zahraničia",
@@ -13,28 +21,83 @@ const services = [
     label: "Kontrola jazdených áut pred kúpou",
   },
   {
-    href: "/sluzby/sprostredkovanie-predaja-vozidiel",
-    label: "Sprostredkovanie predaja vozidiel",
-  },
-  {
-    href: "/sluzby/odtahova-sluzba",
-    label: "Odťahová služba",
+    href: "/sluzby/preprava-a-odtah-vozidiel",
+    label: "Preprava a odťah vozidiel",
   },
 ];
 
-export default function Navbar({ transparent = false }: { transparent?: boolean }) {
+type NavbarProps = {
+  transparent?: boolean;
+  /** Home: Domov, Služby, Kontakt only. Other pages: full links. */
+  variant?: "home" | "full";
+};
+
+export default function Navbar({
+  transparent = false,
+  variant = "full",
+}: NavbarProps) {
+  const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isHome = variant === "home";
+  const isDovozNemeckoPage = pathname === DOVOZ_NEMECKO_PATH;
+  const isKontrolaJazdenychPage = pathname === KONTROLA_JAZDENYCH_PATH;
+
+  function scrollToPrecoMy(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (isDovozNemeckoPage) {
+      e.preventDefault();
+      document
+        .getElementById("nase-skusenosti")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    if (isKontrolaJazdenychPage) {
+      e.preventDefault();
+      document
+        .getElementById("preco-skontrolovat")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function scrollToAkoToFunguje(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (isDovozNemeckoPage) {
+      e.preventDefault();
+      document
+        .getElementById("ako-to-funguje")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    if (isKontrolaJazdenychPage) {
+      e.preventDefault();
+      document
+        .getElementById("ako-kontrola-prebieha")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function scrollToKontaktSekcia(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (!isDovozNemeckoPage && !isKontrolaJazdenychPage) return;
+    e.preventDefault();
+    document
+      .getElementById("kontakt")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   const baseClass = transparent
     ? "absolute top-0 left-0 w-full z-50"
     : "relative w-full z-50 bg-slate-900";
 
   return (
-    <header className={baseClass}>
+    <header
+      className={`${baseClass} [font-family:var(--font-alexandria),system-ui,sans-serif]`}
+    >
       <nav className="mx-auto relative flex max-w-6xl items-center justify-center px-6 py-5 lg:px-10">
         {/* Desktop links (centered) */}
-        <div className="hidden items-center gap-10 text-sm font-medium text-white md:flex">
+        <div
+          className={`hidden items-center font-medium text-white md:flex ${
+            isHome ? "gap-12 text-base lg:text-lg" : "gap-10 text-sm"
+          }`}
+        >
           <Link href="/" className="transition hover:text-[#4190BD]">
             Domov
           </Link>
@@ -48,7 +111,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             >
               Služby
               <svg
-                className={`h-4 w-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""} ${isHome ? "h-5 w-5" : "h-4 w-4"}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -63,12 +126,12 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             </button>
 
             {dropdownOpen && (
-              <div className="absolute left-1/2 top-full mt-2 w-80 -translate-x-1/2 rounded-xl border border-white/20 bg-slate-900/95 p-2 shadow-2xl backdrop-blur-sm">
+              <div className="absolute left-1/2 top-full mt-2 w-[min(100vw-2rem,22rem)] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-white/20 bg-slate-900/95 p-2 shadow-2xl backdrop-blur-sm sm:w-96">
                 {services.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="block rounded-lg px-4 py-2.5 text-sm transition hover:bg-white/10"
+                    className={`block rounded-lg px-4 py-2.5 transition hover:bg-white/10 ${isHome ? "text-base" : "text-sm"}`}
                   >
                     {s.label}
                   </Link>
@@ -77,15 +140,47 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             )}
           </div>
 
-          <Link href="/preco-my" className="transition hover:text-[#4190BD]">
-            Prečo my
-          </Link>
+          {!isHome && (
+            <>
+              <Link
+                href={
+                  isDovozNemeckoPage
+                    ? "#nase-skusenosti"
+                    : isKontrolaJazdenychPage
+                      ? "#preco-skontrolovat"
+                      : "/preco-my"
+                }
+                onClick={scrollToPrecoMy}
+                className="transition hover:text-[#4190BD]"
+              >
+                Prečo my
+              </Link>
 
-          <Link href="/ako-to-funguje" className="transition hover:text-[#4190BD]">
-            Ako to funguje
-          </Link>
+              <Link
+                href={
+                  isDovozNemeckoPage
+                    ? "#ako-to-funguje"
+                    : isKontrolaJazdenychPage
+                      ? "#ako-kontrola-prebieha"
+                      : "/ako-to-funguje"
+                }
+                onClick={scrollToAkoToFunguje}
+                className="transition hover:text-[#4190BD]"
+              >
+                Ako to funguje
+              </Link>
+            </>
+          )}
 
-          <Link href="/kontakt" className="transition hover:text-[#4190BD]">
+          <Link
+            href={
+              isDovozNemeckoPage || isKontrolaJazdenychPage
+                ? "#kontakt"
+                : "/kontakt"
+            }
+            onClick={scrollToKontaktSekcia}
+            className="transition hover:text-[#4190BD]"
+          >
             Kontakt
           </Link>
         </div>
@@ -110,7 +205,11 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
       {/* Skinny divider "just under links" */}
       {transparent && (
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <div className="h-[2px] w-full bg-white/30" />
+          <div
+            className={
+              isHome ? "h-px w-full bg-white/25" : "h-[2px] w-full bg-white/30"
+            }
+          />
         </div>
       )}
 
@@ -119,44 +218,75 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
         <div className="border-t border-white/10 bg-slate-900 px-6 py-4 md:hidden">
           <Link
             href="/"
-            className="block py-2 text-sm font-medium text-white hover:text-[#4190BD]"
+            className={`block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
             onClick={() => setMobileOpen(false)}
           >
             Domov
           </Link>
           <div className="mt-2">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">
+            <p
+              className={`mb-1 font-semibold uppercase tracking-wider text-white/40 ${isHome ? "text-sm" : "text-xs"}`}
+            >
               Služby
             </p>
             {services.map((s) => (
               <Link
                 key={s.href}
                 href={s.href}
-                className="block py-2 pl-3 text-sm text-white hover:text-[#4190BD]"
+                className={`block py-2 pl-3 text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
                 onClick={() => setMobileOpen(false)}
               >
                 {s.label}
               </Link>
             ))}
           </div>
+          {!isHome && (
+            <>
+              <Link
+                href={
+                  isDovozNemeckoPage
+                    ? "#nase-skusenosti"
+                    : isKontrolaJazdenychPage
+                      ? "#preco-skontrolovat"
+                      : "/preco-my"
+                }
+                className={`mt-3 block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
+                onClick={(e) => {
+                  scrollToPrecoMy(e);
+                  setMobileOpen(false);
+                }}
+              >
+                Prečo my
+              </Link>
+              <Link
+                href={
+                  isDovozNemeckoPage
+                    ? "#ako-to-funguje"
+                    : isKontrolaJazdenychPage
+                      ? "#ako-kontrola-prebieha"
+                      : "/ako-to-funguje"
+                }
+                className={`block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
+                onClick={(e) => {
+                  scrollToAkoToFunguje(e);
+                  setMobileOpen(false);
+                }}
+              >
+                Ako to funguje
+              </Link>
+            </>
+          )}
           <Link
-            href="/preco-my"
-            className="mt-3 block py-2 text-sm font-medium text-white hover:text-[#4190BD]"
-            onClick={() => setMobileOpen(false)}
-          >
-            Prečo my
-          </Link>
-          <Link
-            href="/ako-to-funguje"
-            className="block py-2 text-sm font-medium text-white hover:text-[#4190BD]"
-            onClick={() => setMobileOpen(false)}
-          >
-            Ako to funguje
-          </Link>
-          <Link
-            href="/kontakt"
-            className="mt-2 block py-2 text-sm font-medium text-white hover:text-[#4190BD]"
-            onClick={() => setMobileOpen(false)}
+            href={
+              isDovozNemeckoPage || isKontrolaJazdenychPage
+                ? "#kontakt"
+                : "/kontakt"
+            }
+            className={`block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "mt-3 text-base" : "mt-2 text-sm"}`}
+            onClick={(e) => {
+              scrollToKontaktSekcia(e);
+              setMobileOpen(false);
+            }}
           >
             Kontakt
           </Link>

@@ -6,6 +6,10 @@ import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 /** Labels for the homepage “bubbles” (right column under banner). */
 const serviceBubbleLinks = [
   {
+    href: "/sluzby/antikorozna-ochrana-vozidiel",
+    label: "Antikorózna ochrana vozidiel",
+  },
+  {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",
     label: "Dovoz áut z Nemecka a zahraničia",
   },
@@ -14,12 +18,8 @@ const serviceBubbleLinks = [
     label: "Kontrola jazdených áut pred kúpou",
   },
   {
-    href: "/sluzby/sprostredkovanie-predaja-vozidiel",
-    label: "Sprostredkovanie predaja vozidiel",
-  },
-  {
-    href: "/sluzby/odtahova-sluzba",
-    label: "Odťahová služba a preprava vozidiel",
+    href: "/sluzby/preprava-a-odtah-vozidiel",
+    label: "Preprava a odťah vozidiel",
   },
 ] as const;
 
@@ -31,13 +31,13 @@ export default function Home() {
         aria-hidden="true"
         className="fixed inset-0 -z-10 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/banner_background.png')",
+          backgroundImage: "url('/banner_background_2.jpg')",
         }}
       />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen overflow-hidden text-white">
-        <Navbar transparent />
+        <Navbar transparent variant="home" />
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start justify-center px-6 pb-24 pt-32 lg:px-10">
           <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
             Dovoz a preprava vozidiel
@@ -103,7 +103,7 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/banner_background.png')",
+            backgroundImage: "url('/banner_background_2.jpg')",
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:px-10 lg:py-32">
@@ -165,7 +165,7 @@ export default function Home() {
                     Rýchlo, bezpečne, nonstop a za férové ceny.
                   </p>
                   <Link
-                    href="/sluzby/odtahova-sluzba"
+                    href="/sluzby/preprava-a-odtah-vozidiel"
                     className="mt-6 inline-block text-base font-medium underline underline-offset-4 transition hover:text-white/80"
                   >
                     Viac informácií
@@ -192,7 +192,7 @@ export default function Home() {
 
               <div className="flex justify-start lg:justify-end lg:pt-2">
                 <Link
-                  href="/sluzby/odtahova-sluzba"
+                  href="/sluzby/preprava-a-odtah-vozidiel"
                   className="inline-flex max-w-xs items-center justify-center rounded-xl border-2 border-white px-6 py-5 text-center text-base font-semibold leading-snug transition hover:bg-white/15 sm:max-w-sm"
                 >
                   Prečo si vybrať našu odťahovú službu?
@@ -250,7 +250,7 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/banner_background.png')",
+            backgroundImage: "url('/banner_background_2.jpg')",
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:px-10 lg:py-32">
@@ -266,7 +266,7 @@ export default function Home() {
               ušetríte čas, nervy a získate najlepšiu možnú cenu.
             </p>
             <Link
-              href="/sluzby/sprostredkovanie-predaja-vozidiel"
+              href="/kontakt"
               className="mt-6 inline-block text-base font-medium underline underline-offset-4 transition hover:text-white/85"
             >
               Viac informácií
@@ -316,15 +316,17 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(8,20,40,0.82), rgba(8,20,40,0.82)), url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1800&q=80')",
+              "linear-gradient(rgba(8,20,40,0.32), rgba(8,20,40,0.32)), url('/ConntactMenu_background.jpg')",
           }}
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-10">
           <div className="grid gap-14 lg:grid-cols-2">
             {/* Form */}
             <div>
-              <h2 className="text-3xl font-bold sm:text-4xl">Kontaktujte nás</h2>
-              <p className="mt-3 text-slate-300">
+              <h2 className="text-3xl font-bold text-white drop-shadow-sm sm:text-4xl">
+                Kontaktujte nás
+              </h2>
+              <p className="mt-3 text-base font-medium text-white/95 drop-shadow-sm">
                 Napíšte nám a ozveme sa vám čo najskôr.
               </p>
 
@@ -333,23 +335,23 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Meno"
-                    className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm placeholder-slate-400 outline-none backdrop-blur-sm transition focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                    className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
                   />
                   <input
                     type="email"
                     placeholder="E-mail"
-                    className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm placeholder-slate-400 outline-none backdrop-blur-sm transition focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                    className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
                   />
                 </div>
                 <input
                   type="tel"
                   placeholder="Telefónne číslo"
-                  className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm placeholder-slate-400 outline-none backdrop-blur-sm transition focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                  className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
                 />
                 <textarea
                   rows={5}
                   placeholder="Správa"
-                  className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm placeholder-slate-400 outline-none backdrop-blur-sm transition focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                  className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
                 />
                 <button
                   type="submit"
@@ -363,33 +365,35 @@ export default function Home() {
             {/* Contact info */}
             <div className="flex flex-col justify-center gap-8 lg:pl-10">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-sky-400">
+                <p className="text-xs font-semibold uppercase tracking-wider text-white drop-shadow-sm">
                   Telefón
                 </p>
                 <a
                   href="tel:+421900000000"
-                  className="mt-1 block text-xl font-semibold transition hover:text-sky-400"
+                  className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
                   +421 900 000 000
                 </a>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-sky-400">
+                <p className="text-xs font-semibold uppercase tracking-wider text-white drop-shadow-sm">
                   E-mail
                 </p>
                 <a
                   href="mailto:info@pslany.sk"
-                  className="mt-1 block text-xl font-semibold transition hover:text-sky-400"
+                  className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
                   info@pslany.sk
                 </a>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-sky-400">
+                <p className="text-xs font-semibold uppercase tracking-wider text-white drop-shadow-sm">
                   Pracovná doba
                 </p>
-                <p className="mt-1 text-slate-300">Pondelok – Piatok: 8:00 – 18:00</p>
-                <p className="text-slate-300">Sobota: 9:00 – 13:00</p>
+                <p className="mt-1 text-white/95 drop-shadow-sm">
+                  Pondelok – Piatok: 8:00 – 18:00
+                </p>
+                <p className="text-white/95 drop-shadow-sm">Sobota: 9:00 – 13:00</p>
               </div>
             </div>
           </div>
