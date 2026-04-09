@@ -30,7 +30,7 @@ export default function DovozNemeckoPage() {
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
           <div className="mt-20 sm:mt-28 lg:mt-36">
             <h1
-              className="whitespace-nowrap font-bold leading-tight tracking-tight text-white text-[clamp(1.05rem,4.2vw+0.35rem,3.75rem)]"
+              className="whitespace-normal font-bold leading-tight tracking-tight text-white text-[clamp(1.05rem,4.2vw+0.35rem,3.75rem)] max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)] sm:whitespace-nowrap"
               style={{
                 textShadow:
                   "0 0 28px rgba(255,255,255,0.35), 0 2px 18px rgba(0,0,0,0.65)",

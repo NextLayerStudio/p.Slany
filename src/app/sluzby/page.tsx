@@ -26,7 +26,9 @@ export default function SluzbyPage() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-16">
-        <h1 className="text-4xl font-bold text-slate-900">Služby</h1>
+        <h1 className="text-4xl font-bold text-slate-900 max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)]">
+          Služby
+        </h1>
         <p className="mt-4 text-lg text-slate-600">
           Vyberte si službu, ktorú potrebujete.
         </p>

@@ -30,7 +30,7 @@ export default function AntikoroznaOchranaPage() {
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
           <div className="mt-12 max-w-4xl sm:mt-20 lg:mt-28">
             <h1
-              className="font-bold leading-tight tracking-tight text-white text-[clamp(1.35rem,3.6vw+0.5rem,3.5rem)]"
+              className="font-bold leading-tight tracking-tight text-white text-[clamp(1.35rem,3.6vw+0.5rem,3.5rem)] max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)]"
               style={{
                 textShadow:
                   "0 0 28px rgba(255,255,255,0.35), 0 2px 18px rgba(0,0,0,0.65)",

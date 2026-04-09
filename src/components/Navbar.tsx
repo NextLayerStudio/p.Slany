@@ -263,7 +263,7 @@ export default function Navbar({
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-slate-900 px-6 py-4 md:hidden">
+        <div className="border-t border-white/20 bg-white/10 px-6 py-4 shadow-2xl backdrop-blur-xl md:hidden">
           <Link
             href="/"
             className="block py-2 text-base font-medium text-white hover:text-[#4190BD]"

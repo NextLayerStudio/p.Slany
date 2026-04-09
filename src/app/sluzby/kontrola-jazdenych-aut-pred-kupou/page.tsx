@@ -29,7 +29,7 @@ export default function KontrolaJazdenychPage() {
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-10 pt-32 sm:pb-12 lg:px-10">
           <div className="flex flex-1 flex-col justify-center px-0 sm:px-4">
             <h1
-              className="text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
+              className="text-3xl font-bold leading-tight tracking-tight text-white max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)] sm:text-4xl md:text-5xl lg:text-6xl"
               style={{
                 textShadow:
                   "0 0 28px rgba(255,255,255,0.35), 0 2px 18px rgba(0,0,0,0.65)",
@@ -37,7 +37,7 @@ export default function KontrolaJazdenychPage() {
             >
               Kontrola jazdených áut pred kúpou
             </h1>
-            <p className="mx-auto mt-5 max-w-3xl text-center text-lg font-semibold leading-snug text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)] sm:text-xl md:text-2xl">
+            <p className="mt-5 max-w-3xl text-lg font-semibold leading-snug text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)] sm:text-xl md:text-2xl">
               – chráňte sa pred rizikom a zbytočnými nákladmi
             </p>
           </div>
@@ -67,10 +67,11 @@ export default function KontrolaJazdenychPage() {
 
       <section
         id="preco-skontrolovat"
-        className="scroll-mt-24 bg-white py-16 text-slate-900 sm:py-20 lg:py-24"
+        className="scroll-mt-24 py-16 text-white sm:py-20 lg:py-24"
+        style={{ backgroundColor: "#4190BD" }}
       >
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-[2.25rem]">
+          <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.25rem]">
             Prečo si dať auto skontrolovať ešte pred kúpou?
           </h2>
 
