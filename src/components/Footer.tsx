@@ -23,7 +23,7 @@ const serviceLinks = [
   },
   {
     href: "/sluzby/preprava-a-odtah-vozidiel",
-    label: "Preprava a odťah vozidiel",
+    label: "Odťahová služba a preprava vozidiel",
   },
 ];
 

@@ -34,6 +34,10 @@ export default function Home() {
           backgroundImage: "url('/banner_background_2.jpg')",
         }}
       />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen overflow-hidden text-white">
@@ -51,7 +55,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/kontakt"
+            href="#kontakt"
             className="mt-10 inline-flex min-w-44 items-center justify-center rounded-full border-2 border-white px-8 py-3.5 text-lg font-medium transition hover:bg-white hover:text-slate-900"
           >
             Kontakt
@@ -105,6 +109,10 @@ export default function Home() {
           style={{
             backgroundImage: "url('/banner_background_2.jpg')",
           }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:px-10 lg:py-32">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
@@ -253,6 +261,10 @@ export default function Home() {
             backgroundImage: "url('/banner_background_2.jpg')",
           }}
         />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+        />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:px-10 lg:py-32">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Sprostredkovanie predaja vozidiel
@@ -266,25 +278,17 @@ export default function Home() {
               ušetríte čas, nervy a získate najlepšiu možnú cenu.
             </p>
             <Link
-              href="/kontakt"
+              href="#kontakt"
               className="mt-6 inline-block text-base font-medium underline underline-offset-4 transition hover:text-white/85"
             >
               Viac informácií
             </Link>
           </div>
+        </div>
 
-          <div className="mt-10 flex justify-center sm:mt-12">
-            <a
-              href="#zabezpecime"
-              className="inline-flex min-w-[12rem] items-center justify-center rounded-xl border-2 border-white px-8 py-4 text-center text-base font-bold text-white transition hover:bg-white/15"
-            >
-              Čo zabezpečíme
-            </a>
-          </div>
-
+        <div className="relative z-10 mx-auto mt-12 w-full max-w-[min(92rem,calc(100%-1.5rem))] px-3 sm:mt-16 sm:px-6 lg:px-10">
           <div
-            id="zabezpecime"
-            className="mt-12 rounded-[2rem] px-6 py-8 sm:mt-16 sm:px-10 sm:py-10"
+            className="rounded-[2rem] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-11"
             style={{ backgroundColor: "#4190BD" }}
           >
             <p className="text-lg font-medium text-white sm:text-xl">
@@ -311,7 +315,10 @@ export default function Home() {
       </section>
 
       {/* ── KONTAKTUJTE NÁS ──────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-24 text-white">
+      <section
+        id="kontakt"
+        className="relative scroll-mt-24 overflow-hidden py-24 text-white"
+      >
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -326,7 +333,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-white drop-shadow-sm sm:text-4xl">
                 Kontaktujte nás
               </h2>
-              <p className="mt-3 text-base font-medium text-white/95 drop-shadow-sm">
+              <p className="mt-3 text-base font-semibold text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]">
                 Napíšte nám a ozveme sa vám čo najskôr.
               </p>
 
@@ -335,23 +342,23 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Meno"
-                    className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                   />
                   <input
                     type="email"
                     placeholder="E-mail"
-                    className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                   />
                 </div>
                 <input
                   type="tel"
                   placeholder="Telefónne číslo"
-                  className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                 />
                 <textarea
                   rows={5}
                   placeholder="Správa"
-                  className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                 />
                 <button
                   type="submit"

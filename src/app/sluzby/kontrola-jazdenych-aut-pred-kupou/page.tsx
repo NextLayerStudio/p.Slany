@@ -264,7 +264,7 @@ export default function KontrolaJazdenychPage() {
               <h2 className="text-3xl font-bold text-white drop-shadow-sm sm:text-4xl">
                 Kontaktujte nás
               </h2>
-              <p className="mt-3 text-base font-medium text-white/95 drop-shadow-sm">
+              <p className="mt-3 text-base font-semibold text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]">
                 Napíšte nám a ozveme sa vám čo najskôr.
               </p>
 
@@ -273,23 +273,23 @@ export default function KontrolaJazdenychPage() {
                   <input
                     type="text"
                     placeholder="Meno"
-                    className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                   />
                   <input
                     type="email"
                     placeholder="E-mail"
-                    className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                   />
                 </div>
                 <input
                   type="tel"
                   placeholder="Telefónne číslo"
-                  className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                 />
                 <textarea
                   rows={5}
                   placeholder="Správa"
-                  className="w-full rounded-xl border border-white/35 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/70 outline-none backdrop-blur-sm transition focus:border-white/60 focus:ring-1 focus:ring-white/50"
+                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
                 />
                 <button
                   type="submit"

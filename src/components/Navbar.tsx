@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const DOVOZ_NEMECKO_PATH = "/sluzby/dovoz-aut-z-nemecka-a-zahranicia";
 const KONTROLA_JAZDENYCH_PATH = "/sluzby/kontrola-jazdenych-aut-pred-kupou";
+const PREPRAVA_ODTAH_PATH = "/sluzby/preprava-a-odtah-vozidiel";
+const ANTIKOROZNA_PATH = "/sluzby/antikorozna-ochrana-vozidiel";
 
 const services = [
   {
@@ -22,7 +24,7 @@ const services = [
   },
   {
     href: "/sluzby/preprava-a-odtah-vozidiel",
-    label: "Preprava a odťah vozidiel",
+    label: "Odťahová služba a preprava vozidiel",
   },
 ];
 
@@ -42,8 +44,17 @@ export default function Navbar({
   const isHome = variant === "home";
   const isDovozNemeckoPage = pathname === DOVOZ_NEMECKO_PATH;
   const isKontrolaJazdenychPage = pathname === KONTROLA_JAZDENYCH_PATH;
+  const isPrepravaOdtahPage = pathname === PREPRAVA_ODTAH_PATH;
+  const isAntikoroznaPage = pathname === ANTIKOROZNA_PATH;
 
   function scrollToPrecoMy(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (isAntikoroznaPage) {
+      e.preventDefault();
+      document
+        .getElementById("preco-antikorozna")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     if (isDovozNemeckoPage) {
       e.preventDefault();
       document
@@ -56,10 +67,24 @@ export default function Navbar({
       document
         .getElementById("preco-skontrolovat")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    if (isPrepravaOdtahPage) {
+      e.preventDefault();
+      document
+        .getElementById("preco-odtahova-sluzba")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
   function scrollToAkoToFunguje(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (isAntikoroznaPage) {
+      e.preventDefault();
+      document
+        .getElementById("ako-prebieha-osetrenie")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     if (isDovozNemeckoPage) {
       e.preventDefault();
       document
@@ -72,11 +97,24 @@ export default function Navbar({
       document
         .getElementById("ako-kontrola-prebieha")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    if (isPrepravaOdtahPage) {
+      e.preventDefault();
+      document
+        .getElementById("kontakt")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
   function scrollToKontaktSekcia(e: React.MouseEvent<HTMLAnchorElement>) {
-    if (!isDovozNemeckoPage && !isKontrolaJazdenychPage) return;
+    const scrollsToPageKontakt =
+      isHome ||
+      isDovozNemeckoPage ||
+      isKontrolaJazdenychPage ||
+      isPrepravaOdtahPage ||
+      isAntikoroznaPage;
+    if (!scrollsToPageKontakt) return;
     e.preventDefault();
     document
       .getElementById("kontakt")
@@ -94,9 +132,7 @@ export default function Navbar({
       <nav className="mx-auto relative flex max-w-6xl items-center justify-center px-6 py-5 lg:px-10">
         {/* Desktop links (centered) */}
         <div
-          className={`hidden items-center font-medium text-white md:flex ${
-            isHome ? "gap-12 text-base lg:text-lg" : "gap-10 text-sm"
-          }`}
+          className="hidden items-center gap-10 text-base font-medium text-white md:flex lg:text-lg"
         >
           <Link href="/" className="transition hover:text-[#4190BD]">
             Domov
@@ -111,7 +147,7 @@ export default function Navbar({
             >
               Služby
               <svg
-                className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""} ${isHome ? "h-5 w-5" : "h-4 w-4"}`}
+                className={`h-5 w-5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -126,12 +162,12 @@ export default function Navbar({
             </button>
 
             {dropdownOpen && (
-              <div className="absolute left-1/2 top-full mt-2 w-[min(100vw-2rem,22rem)] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-white/20 bg-slate-900/95 p-2 shadow-2xl backdrop-blur-sm sm:w-96">
+              <div className="absolute left-1/2 top-full mt-2 w-[min(100vw-2rem,22rem)] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-xl border border-white/30 bg-white/10 p-2 shadow-2xl backdrop-blur-xl sm:w-96">
                 {services.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
-                    className={`block rounded-lg px-4 py-2.5 transition hover:bg-white/10 ${isHome ? "text-base" : "text-sm"}`}
+                    className="block rounded-lg px-4 py-2.5 text-base transition hover:bg-white/15"
                   >
                     {s.label}
                   </Link>
@@ -144,11 +180,15 @@ export default function Navbar({
             <>
               <Link
                 href={
-                  isDovozNemeckoPage
-                    ? "#nase-skusenosti"
-                    : isKontrolaJazdenychPage
-                      ? "#preco-skontrolovat"
-                      : "/preco-my"
+                  isAntikoroznaPage
+                    ? "#preco-antikorozna"
+                    : isDovozNemeckoPage
+                      ? "#nase-skusenosti"
+                      : isKontrolaJazdenychPage
+                        ? "#preco-skontrolovat"
+                        : isPrepravaOdtahPage
+                          ? "#preco-odtahova-sluzba"
+                          : "/preco-my"
                 }
                 onClick={scrollToPrecoMy}
                 className="transition hover:text-[#4190BD]"
@@ -158,11 +198,15 @@ export default function Navbar({
 
               <Link
                 href={
-                  isDovozNemeckoPage
-                    ? "#ako-to-funguje"
-                    : isKontrolaJazdenychPage
-                      ? "#ako-kontrola-prebieha"
-                      : "/ako-to-funguje"
+                  isAntikoroznaPage
+                    ? "#ako-prebieha-osetrenie"
+                    : isDovozNemeckoPage
+                      ? "#ako-to-funguje"
+                      : isKontrolaJazdenychPage
+                        ? "#ako-kontrola-prebieha"
+                        : isPrepravaOdtahPage
+                          ? "#kontakt"
+                          : "/ako-to-funguje"
                 }
                 onClick={scrollToAkoToFunguje}
                 className="transition hover:text-[#4190BD]"
@@ -174,7 +218,11 @@ export default function Navbar({
 
           <Link
             href={
-              isDovozNemeckoPage || isKontrolaJazdenychPage
+              isHome ||
+              isDovozNemeckoPage ||
+              isKontrolaJazdenychPage ||
+              isPrepravaOdtahPage ||
+              isAntikoroznaPage
                 ? "#kontakt"
                 : "/kontakt"
             }
@@ -218,22 +266,20 @@ export default function Navbar({
         <div className="border-t border-white/10 bg-slate-900 px-6 py-4 md:hidden">
           <Link
             href="/"
-            className={`block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
+            className="block py-2 text-base font-medium text-white hover:text-[#4190BD]"
             onClick={() => setMobileOpen(false)}
           >
             Domov
           </Link>
           <div className="mt-2">
-            <p
-              className={`mb-1 font-semibold uppercase tracking-wider text-white/40 ${isHome ? "text-sm" : "text-xs"}`}
-            >
+            <p className="mb-1 text-sm font-semibold uppercase tracking-wider text-white/40">
               Služby
             </p>
             {services.map((s) => (
               <Link
                 key={s.href}
                 href={s.href}
-                className={`block py-2 pl-3 text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
+                className="block py-2 pl-3 text-base text-white hover:text-[#4190BD]"
                 onClick={() => setMobileOpen(false)}
               >
                 {s.label}
@@ -244,13 +290,17 @@ export default function Navbar({
             <>
               <Link
                 href={
-                  isDovozNemeckoPage
-                    ? "#nase-skusenosti"
-                    : isKontrolaJazdenychPage
-                      ? "#preco-skontrolovat"
-                      : "/preco-my"
+                  isAntikoroznaPage
+                    ? "#preco-antikorozna"
+                    : isDovozNemeckoPage
+                      ? "#nase-skusenosti"
+                      : isKontrolaJazdenychPage
+                        ? "#preco-skontrolovat"
+                        : isPrepravaOdtahPage
+                          ? "#preco-odtahova-sluzba"
+                          : "/preco-my"
                 }
-                className={`mt-3 block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
+                className="mt-3 block py-2 text-base font-medium text-white hover:text-[#4190BD]"
                 onClick={(e) => {
                   scrollToPrecoMy(e);
                   setMobileOpen(false);
@@ -260,13 +310,17 @@ export default function Navbar({
               </Link>
               <Link
                 href={
-                  isDovozNemeckoPage
-                    ? "#ako-to-funguje"
-                    : isKontrolaJazdenychPage
-                      ? "#ako-kontrola-prebieha"
-                      : "/ako-to-funguje"
+                  isAntikoroznaPage
+                    ? "#ako-prebieha-osetrenie"
+                    : isDovozNemeckoPage
+                      ? "#ako-to-funguje"
+                      : isKontrolaJazdenychPage
+                        ? "#ako-kontrola-prebieha"
+                        : isPrepravaOdtahPage
+                          ? "#kontakt"
+                          : "/ako-to-funguje"
                 }
-                className={`block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "text-base" : "text-sm"}`}
+                className="block py-2 text-base font-medium text-white hover:text-[#4190BD]"
                 onClick={(e) => {
                   scrollToAkoToFunguje(e);
                   setMobileOpen(false);
@@ -278,11 +332,15 @@ export default function Navbar({
           )}
           <Link
             href={
-              isDovozNemeckoPage || isKontrolaJazdenychPage
+              isHome ||
+              isDovozNemeckoPage ||
+              isKontrolaJazdenychPage ||
+              isPrepravaOdtahPage ||
+              isAntikoroznaPage
                 ? "#kontakt"
                 : "/kontakt"
             }
-            className={`block py-2 font-medium text-white hover:text-[#4190BD] ${isHome ? "mt-3 text-base" : "mt-2 text-sm"}`}
+            className={`block py-2 text-base font-medium text-white hover:text-[#4190BD] ${isHome ? "mt-3" : "mt-2"}`}
             onClick={(e) => {
               scrollToKontaktSekcia(e);
               setMobileOpen(false);
