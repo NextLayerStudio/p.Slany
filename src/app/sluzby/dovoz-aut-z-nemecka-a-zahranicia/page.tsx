@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import DovozStep5Accordion from "@/components/DovozStep5Accordion";
 
 export const metadata = {
