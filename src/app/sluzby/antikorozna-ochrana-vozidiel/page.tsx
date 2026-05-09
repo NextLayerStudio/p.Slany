@@ -14,7 +14,7 @@ export const metadata = {
 export default function AntikoroznaOchranaPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <section className="relative min-h-screen overflow-hidden text-white">
+      <section className="relative min-h-svh overflow-hidden text-white">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center"
@@ -29,7 +29,7 @@ export default function AntikoroznaOchranaPage() {
 
         <Navbar transparent variant="full" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
           <div className="mt-12 max-w-4xl sm:mt-20 lg:mt-28">
             <h1
               className="font-bold leading-tight tracking-tight text-white text-[clamp(1.35rem,3.6vw+0.5rem,3.5rem)] max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)]"

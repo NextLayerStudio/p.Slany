@@ -28,23 +28,21 @@ const serviceBubbleLinks = [
 export default function Home() {
   return (
     <>
-      {/* Page-wide fixed banner background (visible through transparent sections). */}
-      <div
-        aria-hidden="true"
-        className="fixed inset-0 -z-10 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/banner_background_2.jpg')",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-      />
-
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen overflow-hidden text-white">
+      <section className="relative min-h-svh overflow-hidden text-white">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/banner_background_2.jpg')",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+        />
         <Navbar transparent variant="home" />
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start justify-center px-6 pb-24 pt-32 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start justify-center px-6 pb-24 pt-32 lg:px-10">
           <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
             Dovoz a preprava vozidiel
             <br />
@@ -104,7 +102,7 @@ export default function Home() {
       <section className="relative overflow-hidden text-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/banner_background_2.jpg')",
           }}
@@ -252,7 +250,7 @@ export default function Home() {
       <section className="relative overflow-hidden text-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/banner_background_2.jpg')",
           }}

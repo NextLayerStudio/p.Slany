@@ -14,7 +14,7 @@ export const metadata = {
 export default function DovozNemeckoPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <section className="relative min-h-screen overflow-hidden text-white">
+      <section className="relative min-h-svh overflow-hidden text-white">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center"
@@ -29,7 +29,7 @@ export default function DovozNemeckoPage() {
 
         <Navbar transparent variant="full" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
           <div className="mt-20 sm:mt-28 lg:mt-36">
             <h1
               className="whitespace-normal font-bold leading-tight tracking-tight text-white text-[clamp(1.05rem,4.2vw+0.35rem,3.75rem)] max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)] sm:whitespace-nowrap"

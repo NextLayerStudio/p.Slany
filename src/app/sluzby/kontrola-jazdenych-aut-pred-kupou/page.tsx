@@ -13,7 +13,7 @@ export const metadata = {
 export default function KontrolaJazdenychPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <section className="relative min-h-screen overflow-hidden text-white">
+      <section className="relative min-h-svh overflow-hidden text-white">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center"
@@ -28,7 +28,7 @@ export default function KontrolaJazdenychPage() {
 
         <Navbar transparent variant="full" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-10 pt-32 sm:pb-12 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col px-6 pb-10 pt-32 sm:pb-12 lg:px-10">
           <div className="flex flex-1 flex-col justify-center px-0 sm:px-4">
             <h1
               className="text-3xl font-bold leading-tight tracking-tight text-white max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)] sm:text-4xl md:text-5xl lg:text-6xl"
