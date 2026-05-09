@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import AntikoroznaBannerAccordions from "@/components/AntikoroznaBannerAccordions";
 import { GlossySurface } from "@/components/GlossySection";
 
@@ -165,36 +166,7 @@ export default function AntikoroznaOchranaPage() {
                 Napíšte nám a ozveme sa vám čo najskôr.
               </p>
 
-              <form className="mt-8 space-y-4" action="#" method="POST">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <input
-                    type="text"
-                    placeholder="Meno"
-                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                  />
-                  <input
-                    type="email"
-                    placeholder="E-mail"
-                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                  />
-                </div>
-                <input
-                  type="tel"
-                  placeholder="Telefónne číslo"
-                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                />
-                <textarea
-                  rows={5}
-                  placeholder="Správa"
-                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                />
-                <button
-                  type="submit"
-                  className="w-full rounded-xl border border-white/50 bg-white px-6 py-3.5 font-semibold text-neutral-950 shadow-sm transition hover:bg-zinc-100"
-                >
-                  Odoslať správu
-                </button>
-              </form>
+              <ContactForm />
             </div>
 
             <div className="flex flex-col justify-center gap-8 lg:pl-10">
