@@ -7,15 +7,17 @@ dns.setDefaultResultOrder("ipv4first");
 
 export const runtime = "nodejs";
 
-const REQUIRED_ENV = [
+const REQUIRED_SMTP_ENV = [
   "SMTP_HOST",
   "SMTP_PORT",
   "SMTP_USER",
   "SMTP_PASS",
 ] as const;
 
-function getMissingEnvKeys() {
-  return REQUIRED_ENV.filter((key) => {
+const MAIL_TO = "info@jvdcars.sk";
+
+function getMissingSmtpEnvKeys() {
+  return REQUIRED_SMTP_ENV.filter((key) => {
     const v = process.env[key];
     return typeof v !== "string" || v.trim() === "";
   });
@@ -36,38 +38,55 @@ function getStringValue(formData: FormData, key: string) {
   return value.trim();
 }
 
-export async function POST(request: Request) {
-  const missingEnvKeys = getMissingEnvKeys();
-  if (missingEnvKeys.length > 0) {
-    return NextResponse.json(
-      {
-        message: `Chýba konfigurácia e-mailu: ${missingEnvKeys.join(", ")}`,
-      },
-      { status: 500 },
-    );
+async function sendViaResend(
+  from: string,
+  replyTo: string,
+  html: string,
+  text: string,
+) {
+  const key = process.env.RESEND_API_KEY?.trim();
+  if (!key) throw new Error("RESEND_API_KEY missing");
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+    body: JSON.stringify({
+      from,
+      to: [MAIL_TO],
+      reply_to: replyTo,
+      subject: "Nový dopyt z kontaktného formulára",
+      html,
+      text,
+    }),
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    console.error("[contact] Resend HTTP error:", res.status, body);
+    throw new Error(`Resend HTTP ${res.status}`);
   }
+}
 
-  const formData = await request.formData();
-  const name = getStringValue(formData, "name");
-  const email = getStringValue(formData, "email");
-  const phone = getStringValue(formData, "phone");
-  const message = getStringValue(formData, "message");
-
-  if (!name || !email || !phone || !message) {
-    return NextResponse.json(
-      { message: "Vyplňte prosím všetky polia formulára." },
-      { status: 400 },
+async function sendViaSmtp(
+  from: string,
+  replyTo: string,
+  html: string,
+  text: string,
+) {
+  const missingEnvKeys = getMissingSmtpEnvKeys();
+  if (missingEnvKeys.length > 0) {
+    throw new Error(
+      `Chýba konfigurácia e-mailu: ${missingEnvKeys.join(", ")}`,
     );
   }
 
   const port = Number(process.env.SMTP_PORT);
   if (!Number.isFinite(port) || port <= 0) {
-    return NextResponse.json(
-      {
-        message:
-          "Neplatná hodnota SMTP_PORT. Použite napr. 587 (STARTTLS) alebo 465 (SSL).",
-      },
-      { status: 500 },
+    throw new Error(
+      "Neplatná hodnota SMTP_PORT. Použite napr. 587 (STARTTLS) alebo 465 (SSL).",
     );
   }
 
@@ -81,11 +100,55 @@ export async function POST(request: Request) {
     socketTimeout: 25_000,
     auth: {
       user: process.env.SMTP_USER?.trim(),
-      pass: process.env.SMTP_PASS,
+      pass: process.env.SMTP_PASS?.trim(),
     },
   });
 
-  const htmlMessage = `
+  await transporter.sendMail({
+    from,
+    to: MAIL_TO,
+    replyTo,
+    subject: "Nový dopyt z kontaktného formulára",
+    text,
+    html,
+  });
+}
+
+/** Safe diagnostics: open GET /api/contact in the browser to verify env on Vercel (no secrets returned). */
+export async function GET() {
+  const useResend = Boolean(process.env.RESEND_API_KEY?.trim());
+  const missing = getMissingSmtpEnvKeys();
+  return NextResponse.json({
+    ok: true,
+    delivery: useResend ? "resend" : "smtp",
+    resendConfigured: useResend,
+    smtp: {
+      host: process.env.SMTP_HOST?.trim() || null,
+      port: process.env.SMTP_PORT?.trim() || null,
+      userSet: Boolean(process.env.SMTP_USER?.trim()),
+      passSet: Boolean(process.env.SMTP_PASS?.trim()),
+      fromSet: Boolean(process.env.SMTP_FROM?.trim()),
+      missingKeys: useResend ? [] : missing,
+    },
+  });
+}
+
+export async function POST(request: Request) {
+  try {
+    const formData = await request.formData();
+    const name = getStringValue(formData, "name");
+    const email = getStringValue(formData, "email");
+    const phone = getStringValue(formData, "phone");
+    const message = getStringValue(formData, "message");
+
+    if (!name || !email || !phone || !message) {
+      return NextResponse.json(
+        { message: "Vyplňte prosím všetky polia formulára." },
+        { status: 400 },
+      );
+    }
+
+    const htmlMessage = `
     <h2>Nová správa z kontaktného formulára</h2>
     <p><strong>Meno:</strong> ${escapeHtml(name)}</p>
     <p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
@@ -94,25 +157,40 @@ export async function POST(request: Request) {
     <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
   `;
 
-  const textMessage =
-    `Nová správa z kontaktného formulára\n\n` +
-    `Meno: ${name}\n` +
-    `E-mail: ${email}\n` +
-    `Telefón: ${phone}\n\n` +
-    `Správa:\n${message}`;
+    const textMessage =
+      `Nová správa z kontaktného formulára\n\n` +
+      `Meno: ${name}\n` +
+      `E-mail: ${email}\n` +
+      `Telefón: ${phone}\n\n` +
+      `Správa:\n${message}`;
 
-  try {
-    const from =
+    const fromSmtp =
       process.env.SMTP_FROM?.trim() || process.env.SMTP_USER?.trim() || "";
+    const fromResend =
+      process.env.RESEND_FROM?.trim() ||
+      process.env.SMTP_FROM?.trim() ||
+      "";
 
-    await transporter.sendMail({
-      from,
-      to: "info@jvdcars.sk",
-      replyTo: email,
-      subject: "Nový dopyt z kontaktného formulára",
-      text: textMessage,
-      html: htmlMessage,
-    });
+    const useResend = Boolean(process.env.RESEND_API_KEY?.trim());
+    const from = useResend
+      ? fromResend || "Kontakt <onboarding@resend.dev>"
+      : fromSmtp;
+
+    if (!from) {
+      return NextResponse.json(
+        {
+          message:
+            "Chýba odosielateľ: nastavte SMTP_FROM alebo RESEND_FROM (a pre SMTP aj SMTP_USER).",
+        },
+        { status: 500 },
+      );
+    }
+
+    if (useResend) {
+      await sendViaResend(from, email, htmlMessage, textMessage);
+    } else {
+      await sendViaSmtp(from, email, htmlMessage, textMessage);
+    }
 
     return NextResponse.json(
       { message: "Správa bola úspešne odoslaná." },
@@ -120,11 +198,22 @@ export async function POST(request: Request) {
     );
   } catch (err) {
     const e = err as Error & { code?: string; responseCode?: number };
-    console.error("[contact] SMTP error:", {
+    const msg = e.message || "";
+
+    if (
+      msg.startsWith("Chýba konfigurácia e-mailu") ||
+      msg.startsWith("Neplatná hodnota SMTP_PORT")
+    ) {
+      console.error("[contact] config:", msg);
+      return NextResponse.json({ message: msg }, { status: 500 });
+    }
+
+    console.error("[contact] send error:", {
       message: e.message,
       code: e.code,
       responseCode: e.responseCode,
     });
+
     return NextResponse.json(
       {
         message:
