@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AntikoroznaBannerAccordions from "@/components/AntikoroznaBannerAccordions";
+import { GlossySurface } from "@/components/GlossySection";
 
 export const metadata = {
   title: "Antikorózna ochrana podvozku vozidiel | p.Slany",
@@ -67,16 +68,15 @@ export default function AntikoroznaOchranaPage() {
         </div>
       </section>
 
-      <section
+      <GlossySurface
         id="preco-antikorozna"
-        className="scroll-mt-24 py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
+        className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
       >
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Prečo je antikorózna ochrana dôležitá?
           </h2>
-          <p className="mt-6 text-base font-normal leading-relaxed text-white/95 sm:text-lg">
+          <p className="mt-6 text-base font-normal leading-relaxed text-neutral-900 sm:text-lg">
             <span className="mr-1.5 font-semibold" aria-hidden>
               ✓
             </span>
@@ -84,11 +84,11 @@ export default function AntikoroznaOchranaPage() {
             životnosť vozidla, zvyšuje bezpečnosť jazdy, zachováva vyššiu
             hodnotu vozidla pri predaji, šetrí náklady na budúce opravy
           </p>
-          <p className="mt-6 text-base font-normal leading-relaxed text-white/95 sm:mt-8 sm:text-lg">
+          <p className="mt-6 text-base font-normal leading-relaxed text-neutral-900 sm:mt-8 sm:text-lg">
             Prevencia je vždy lacnejšia než riešenie rozsiahlej korózie.
           </p>
         </div>
-      </section>
+      </GlossySurface>
 
       <section
         id="ako-prebieha-osetrenie"
@@ -190,7 +190,7 @@ export default function AntikoroznaOchranaPage() {
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-sky-500 px-6 py-3.5 font-semibold text-white transition hover:bg-sky-400"
+                  className="w-full rounded-xl border border-white/50 bg-white px-6 py-3.5 font-semibold text-neutral-950 shadow-sm transition hover:bg-zinc-100"
                 >
                   Odoslať správu
                 </button>

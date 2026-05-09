@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DovozStep5Accordion from "@/components/DovozStep5Accordion";
+import { GlossySurface } from "@/components/GlossySection";
 
 export const metadata = {
   title: "Dovoz áut z Nemecka a zahraničia | p.Slany",
@@ -70,28 +71,25 @@ export default function DovozNemeckoPage() {
         </div>
       </section>
 
-      <section
-        className="py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
-      >
+      <GlossySurface className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Kompletný servis pri dovoze vozidiel zo zahraničia
           </h2>
 
-          <div className="mt-8 max-w-3xl border-l-2 border-white pl-6 sm:mt-10 sm:pl-8">
+          <div className="mt-8 max-w-3xl border-l-2 border-neutral-900/25 pl-6 sm:mt-10 sm:pl-8">
             <h3 className="text-lg font-bold leading-snug sm:text-xl lg:text-2xl">
               Vyhľadanie vozidla
             </h3>
-            <p className="mt-4 text-base leading-relaxed text-white sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-neutral-950 sm:text-lg">
               podľa Vašich predstáv (motorizácia, farba, výbava, cena). Ak si nie
               ste istí výberom, radi poradíme.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-white sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-neutral-950 sm:text-lg">
               Ak už máte auto vyhliadnuté, stačí nám preposlať odkaz a postaráme sa
               o zvyšok.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-white sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-neutral-950 sm:text-lg">
               <span className="font-bold">Komunikujeme priamo s predajcami</span>
               , aby sme získali presné informácie.
             </p>
@@ -100,19 +98,19 @@ export default function DovozNemeckoPage() {
           <div className="mt-12 flex flex-wrap gap-3 sm:mt-14">
             <Link
               href="/sluzby"
-              className="inline-flex rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+              className="inline-flex rounded-full border-2 border-neutral-950 px-6 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
             >
               Späť na služby
             </Link>
             <Link
               href="#ako-to-funguje"
-              className="inline-flex rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+              className="inline-flex rounded-full border-2 border-neutral-950 px-6 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
             >
               Ako to funguje
             </Link>
           </div>
         </div>
-      </section>
+      </GlossySurface>
 
       {/* Ako to funguje – kroky (rovnaký obrázok ako banner) */}
       <section
@@ -220,26 +218,25 @@ export default function DovozNemeckoPage() {
         </div>
       </section>
 
-      <section
+      <GlossySurface
         id="nase-skusenosti"
-        className="scroll-mt-24 py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
+        className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
       >
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Naše skúsenosti – vaša istota
           </h2>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed sm:text-lg">
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-neutral-950 sm:text-lg">
             Dovoz áut zo zahraničia je výhodný, no môže byť rizikový. S nami
             získate partnera, ktorý pozná trh, vie sa vyhnúť nepoctivým predajcom a
             zabezpečí pre vás vozidlo v najlepšom možnom stave.
           </p>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed sm:text-lg">
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-950 sm:text-lg">
             Naším cieľom je, aby ste svoje nové auto kupovali s istotou, nie s
             obavami.
           </p>
 
-          <div className="mt-10 max-w-3xl border-l-2 border-white pl-6 sm:mt-12 sm:pl-8">
+          <div className="mt-10 max-w-3xl border-l-2 border-neutral-900/25 pl-6 sm:mt-12 sm:pl-8">
             <div className="space-y-8 sm:space-y-10">
               <div>
                 <h3 className="text-lg font-bold sm:text-xl">
@@ -281,7 +278,7 @@ export default function DovozNemeckoPage() {
             </div>
           </div>
         </div>
-      </section>
+      </GlossySurface>
 
       {/* Kontakt – rovnaká sekcia ako na úvodnej stránke */}
       <section
@@ -330,7 +327,7 @@ export default function DovozNemeckoPage() {
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-sky-500 px-6 py-3.5 font-semibold text-white transition hover:bg-sky-400"
+                  className="w-full rounded-xl border border-white/50 bg-white px-6 py-3.5 font-semibold text-neutral-950 shadow-sm transition hover:bg-zinc-100"
                 >
                   Odoslať správu
                 </button>

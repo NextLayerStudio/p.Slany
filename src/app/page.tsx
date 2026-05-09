@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
+import { GlossyInset, GlossySurface } from "@/components/GlossySection";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 /** Labels for the homepage “bubbles” (right column under banner). */
@@ -64,18 +66,15 @@ export default function Home() {
       </section>
 
       {/* ── NAŠE SLUŽBY (pod bannerom) ───────────────────────────────────────── */}
-      <section
-        className="py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
-      >
-        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+      <GlossySurface className="py-16 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
             <div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 Naše služby
               </h2>
-              <div className="mt-6 border-l-2 border-white pl-6">
-                <p className="max-w-xl text-base leading-relaxed text-white sm:text-lg">
+              <div className="mt-6 border-l-2 border-neutral-900/25 pl-6">
+                <p className="max-w-xl text-base leading-relaxed text-neutral-950 sm:text-lg">
                   Špecializujeme sa na dovoz vozidiel zo zahraničia, najmä z
                   Nemecka a EÚ, spoľahlivú prepravu áut, odbornú kontrolu
                   vozidiel pred kúpou a profesionálne sprostredkovanie predaja
@@ -91,7 +90,7 @@ export default function Home() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex min-h-[3.25rem] items-center justify-center rounded-full border-2 border-white px-6 py-3 text-center text-base font-medium text-white transition hover:bg-white/15"
+                  className="flex min-h-[3.25rem] items-center justify-center rounded-full border-2 border-neutral-950 px-6 py-3 text-center text-base font-medium text-neutral-950 transition hover:bg-neutral-950 hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -99,7 +98,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </GlossySurface>
 
       {/* ── Dovoz áut – dlhá sekcia (rovnaký obrázok ako banner) ─────────────── */}
       <section className="relative overflow-hidden text-white">
@@ -212,17 +211,14 @@ export default function Home() {
       </section>
 
       {/* ── Kontrola jazdených áut pred kúpou ─────────────────────────────────── */}
-      <section
-        className="py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
-      >
+      <GlossySurface className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Kontrola jazdených áut pred kúpou
           </h2>
 
           <div className="mt-10 grid items-start gap-10 lg:mt-12 lg:grid-cols-[1fr_auto] lg:gap-12">
-            <div className="border-l-2 border-white pl-6">
+            <div className="border-l-2 border-neutral-900/25 pl-6">
               <p className="max-w-2xl text-base leading-relaxed sm:text-lg">
                 Kúpa jazdeného auta je veľkým rozhodnutím. Mnohé vozidlá vyzerajú
                 na prvý pohľad výborne, no skrývajú chyby, stočené kilometre
@@ -234,7 +230,7 @@ export default function Home() {
               </p>
               <Link
                 href="/sluzby/kontrola-jazdenych-aut-pred-kupou"
-                className="mt-6 inline-block text-base font-medium underline underline-offset-4 transition hover:text-white/90"
+                className="mt-6 inline-block text-base font-medium underline underline-offset-4 transition hover:text-neutral-700"
               >
                 Viac informácií
               </Link>
@@ -243,14 +239,14 @@ export default function Home() {
             <div className="flex justify-start lg:justify-end lg:pt-1">
               <Link
                 href="/sluzby/kontrola-jazdenych-aut-pred-kupou"
-                className="inline-flex min-w-[12rem] max-w-xs items-center justify-center rounded-xl border-2 border-white px-6 py-4 text-center text-base font-bold text-white transition hover:bg-white/15 sm:max-w-sm"
+                className="inline-flex min-w-[12rem] max-w-xs items-center justify-center rounded-xl border-2 border-neutral-950 px-6 py-4 text-center text-base font-bold text-neutral-950 transition hover:bg-neutral-950 hover:text-white sm:max-w-sm"
               >
                 Ako kontrola prebieha
               </Link>
             </div>
           </div>
         </div>
-      </section>
+      </GlossySurface>
 
       {/* ── Sprostredkovanie predaja – dlhá sekcia (banner + modrá „bublina“) ── */}
       <section className="relative overflow-hidden text-white">
@@ -287,30 +283,27 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 mx-auto mt-12 w-full max-w-[min(92rem,calc(100%-1.5rem))] px-3 sm:mt-16 sm:px-6 lg:px-10">
-          <div
-            className="rounded-[2rem] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-11"
-            style={{ backgroundColor: "#4190BD" }}
-          >
-            <p className="text-lg font-medium text-white sm:text-xl">
+          <GlossyInset className="px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-11">
+            <p className="text-lg font-medium sm:text-xl">
               Zabezpečíme:
             </p>
-            <div className="my-5 h-px w-full bg-white/70" />
+            <div className="my-5 h-px w-full bg-neutral-900/20" />
             <ul className="grid gap-8 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4 lg:gap-6">
-              <li className="font-bold leading-snug text-white">
+              <li className="font-bold leading-snug text-neutral-950">
                 Odborné ocenenie vozidla
               </li>
-              <li className="font-bold leading-snug text-white">
+              <li className="font-bold leading-snug text-neutral-950">
                 Kompletná komunikácia s kupujúcimi
               </li>
-              <li className="font-bold leading-snug text-white">
+              <li className="font-bold leading-snug text-neutral-950">
                 Bezpečný priebeh predaja
               </li>
-              <li className="font-bold leading-snug text-white">
+              <li className="font-bold leading-snug text-neutral-950">
                 Pomoc s prepisom vozidla
               </li>
             </ul>
-            <div className="mt-8 h-px w-full bg-white/70" />
-          </div>
+            <div className="mt-8 h-px w-full bg-neutral-900/20" />
+          </GlossyInset>
         </div>
       </section>
 
@@ -337,36 +330,7 @@ export default function Home() {
                 Napíšte nám a ozveme sa vám čo najskôr.
               </p>
 
-              <form className="mt-8 space-y-4" action="#" method="POST">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <input
-                    type="text"
-                    placeholder="Meno"
-                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                  />
-                  <input
-                    type="email"
-                    placeholder="E-mail"
-                    className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                  />
-                </div>
-                <input
-                  type="tel"
-                  placeholder="Telefónne číslo"
-                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                />
-                <textarea
-                  rows={5}
-                  placeholder="Správa"
-                  className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
-                />
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-sky-500 px-6 py-3.5 font-semibold text-white transition hover:bg-sky-400"
-                >
-                  Odoslať správu
-                </button>
-              </form>
+              <ContactForm />
             </div>
 
             {/* Contact info */}
@@ -387,10 +351,10 @@ export default function Home() {
                   E-mail
                 </p>
                 <a
-                  href="mailto:info@pslany.sk"
+                  href="mailto:info@jvdcars.sk"
                   className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
-                  info@pslany.sk
+                  info@jvdcars.sk
                 </a>
               </div>
               <div>

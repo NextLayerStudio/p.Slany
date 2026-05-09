@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -130,6 +131,17 @@ export default function Navbar({
       className={`${baseClass} [font-family:var(--font-alexandria),system-ui,sans-serif]`}
     >
       <nav className="mx-auto relative flex max-w-6xl items-center justify-center px-6 py-5 lg:px-10">
+        <Link href="/" className="absolute left-6 lg:left-10" aria-label="JVDCars domov">
+          <Image
+            src="/Logo.png"
+            alt="JVDCars logo"
+            width={170}
+            height={46}
+            className="h-9 w-auto sm:h-10"
+            priority
+          />
+        </Link>
+
         {/* Desktop links (centered) */}
         <div
           className="hidden items-center gap-10 text-base font-medium text-white md:flex lg:text-lg"

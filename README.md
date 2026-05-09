@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact form email setup
+
+To enable sending contact form submissions to `info@jvdcars.sk`, create a `.env.local` file in the project root and add:
+
+```bash
+SMTP_HOST=your-smtp-host
+SMTP_PORT=587
+SMTP_USER=your-smtp-user
+SMTP_PASS=your-smtp-password
+SMTP_FROM=info@jvdcars.sk
+```
+
+You can copy the provided `.env.example` and fill your real values.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

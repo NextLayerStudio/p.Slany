@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { GlossySurface } from "@/components/GlossySection";
 
 export const metadata = {
   title: "Kontrola jazdených áut pred kúpou | p.Slany",
@@ -65,10 +66,9 @@ export default function KontrolaJazdenychPage() {
         </div>
       </section>
 
-      <section
+      <GlossySurface
         id="preco-skontrolovat"
-        className="scroll-mt-24 py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
+        className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
       >
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
           <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.25rem]">
@@ -96,24 +96,17 @@ export default function KontrolaJazdenychPage() {
             ].map((card) => (
               <div
                 key={card.title}
-                className="relative overflow-hidden rounded-2xl text-left text-black shadow-lg"
+                className="flex gap-4 rounded-2xl border border-neutral-900/10 bg-gradient-to-br from-white via-zinc-50/50 to-zinc-100/70 p-6 shadow-[0_2px_16px_-2px_rgba(0,0,0,0.08)] sm:gap-5 sm:p-7"
               >
                 <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: "url('/banner_background_2.jpg')",
-                  }}
+                  className="w-1 shrink-0 self-stretch rounded-full bg-neutral-900/20"
+                  aria-hidden
                 />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-white/78"
-                />
-                <div className="relative z-10 p-6 sm:p-7">
-                  <h3 className="text-lg font-bold leading-snug text-black sm:text-xl">
+                <div className="min-w-0">
+                  <h3 className="text-lg font-bold leading-snug text-neutral-950 sm:text-xl">
                     {card.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-black sm:text-base">
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700 sm:text-base">
                     {card.body}
                   </p>
                 </div>
@@ -121,7 +114,7 @@ export default function KontrolaJazdenychPage() {
             ))}
           </div>
         </div>
-      </section>
+      </GlossySurface>
 
       <section
         id="ako-kontrola-prebieha"
@@ -201,17 +194,14 @@ export default function KontrolaJazdenychPage() {
         </div>
       </section>
 
-      <section
-        className="py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
-      >
+      <GlossySurface className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <div className="flex flex-col gap-12 sm:gap-14 lg:gap-16">
-            <div className="border-l-2 border-white pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
+            <div className="border-l-2 border-neutral-900/25 pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
               <h2 className="text-2xl font-bold leading-tight sm:text-3xl">
                 Pre koho je služba určená?
               </h2>
-              <ul className="mt-4 list-none space-y-3 text-base leading-relaxed text-white/95 sm:mt-5 sm:text-lg">
+              <ul className="mt-4 list-none space-y-3 text-base leading-relaxed text-neutral-950 sm:mt-5 sm:text-lg">
                 <li>Pre ľudí, ktorí kupujú auto z inzercie</li>
                 <li>Pre kupcov bez technických znalostí</li>
                 <li>Pre tých, ktorí chcú istotu a nechcú riskovať</li>
@@ -221,32 +211,32 @@ export default function KontrolaJazdenychPage() {
               </ul>
             </div>
 
-            <div className="border-l-2 border-white pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
+            <div className="border-l-2 border-neutral-900/25 pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
               <h2 className="text-2xl font-bold leading-tight sm:text-3xl">
                 Čo získate?
               </h2>
-              <ul className="mt-4 list-none space-y-3 text-base leading-relaxed text-white/95 sm:mt-5 sm:text-lg">
+              <ul className="mt-4 list-none space-y-3 text-base leading-relaxed text-neutral-950 sm:mt-5 sm:text-lg">
                 <li>Objektívne hodnotenie od odborníka</li>
                 <li>Ochranu pred podvodom alebo nevýhodnou kúpou</li>
                 <li>Informácie, ktoré vám predajca nepovie</li>
               </ul>
             </div>
 
-            <div className="border-l-2 border-white pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
+            <div className="border-l-2 border-neutral-900/25 pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
               <h2 className="text-2xl font-bold leading-tight sm:text-3xl">
                 Nechajte si auto preveriť ešte pred podpisom zmluvy
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-white/95 sm:mt-5 sm:text-lg">
+              <p className="mt-4 text-base leading-relaxed text-neutral-950 sm:mt-5 sm:text-lg">
                 Jedna kontrola vám môže ušetriť stovky až tisíce eur.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-white/95 sm:text-lg">
+              <p className="mt-4 text-base leading-relaxed text-neutral-950 sm:text-lg">
                 Doprajte si istotu a spoľahnite sa na profesionálov, ktorí
                 poznajú autá do posledného detailu.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </GlossySurface>
 
       <section
         id="kontakt"
@@ -294,7 +284,7 @@ export default function KontrolaJazdenychPage() {
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-sky-500 px-6 py-3.5 font-semibold text-white transition hover:bg-sky-400"
+                  className="w-full rounded-xl border border-white/50 bg-white px-6 py-3.5 font-semibold text-neutral-950 shadow-sm transition hover:bg-zinc-100"
                 >
                   Odoslať správu
                 </button>

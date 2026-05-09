@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { GlossySurface } from "@/components/GlossySection";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 export const metadata = {
@@ -80,23 +81,20 @@ export default function PrepravaOdtahPage() {
         </div>
       </section>
 
-      <section
-        className="py-16 text-white sm:py-20 lg:py-24"
-        style={{ backgroundColor: "#4190BD" }}
-      >
+      <GlossySurface className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
           <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Objednajte si odťah alebo prepravu ihneď
           </h2>
-          <p className="mt-6 max-w-3xl text-base font-normal leading-relaxed text-white/95 sm:mt-8 sm:text-lg">
+          <p className="mt-6 max-w-3xl text-base font-normal leading-relaxed text-neutral-950 sm:mt-8 sm:text-lg">
             Nech ste kdekoľvek, vždy sa na nás môžete spoľahnúť.
           </p>
-          <p className="mt-3 max-w-3xl text-base font-normal leading-relaxed text-white/95 sm:mt-4 sm:text-lg">
+          <p className="mt-3 max-w-3xl text-base font-normal leading-relaxed text-neutral-950 sm:mt-4 sm:text-lg">
             Ponúkame rýchlu, bezpečnú a profesionálnu službu pre jednotlivcov,
             firmy aj auto dealerov.
           </p>
         </div>
-      </section>
+      </GlossySurface>
 
       <section
         id="preco-odtahova-sluzba"
@@ -201,7 +199,7 @@ export default function PrepravaOdtahPage() {
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-sky-500 px-6 py-3.5 font-semibold text-white transition hover:bg-sky-400"
+                  className="w-full rounded-xl border border-white/50 bg-white px-6 py-3.5 font-semibold text-neutral-950 shadow-sm transition hover:bg-zinc-100"
                 >
                   Odoslať správu
                 </button>
