@@ -1,5 +1,11 @@
+import dns from "node:dns";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+
+/** Cloud hosts (e.g. Vercel) often resolve SMTP via IPv6 first; many providers only accept IPv4. */
+dns.setDefaultResultOrder("ipv4first");
+
+export const runtime = "nodejs";
 
 const REQUIRED_ENV = [
   "SMTP_HOST",
@@ -9,7 +15,10 @@ const REQUIRED_ENV = [
 ] as const;
 
 function getMissingEnvKeys() {
-  return REQUIRED_ENV.filter((key) => !process.env[key]);
+  return REQUIRED_ENV.filter((key) => {
+    const v = process.env[key];
+    return typeof v !== "string" || v.trim() === "";
+  });
 }
 
 function escapeHtml(value: string) {
@@ -52,13 +61,26 @@ export async function POST(request: Request) {
   }
 
   const port = Number(process.env.SMTP_PORT);
+  if (!Number.isFinite(port) || port <= 0) {
+    return NextResponse.json(
+      {
+        message:
+          "Neplatná hodnota SMTP_PORT. Použite napr. 587 (STARTTLS) alebo 465 (SSL).",
+      },
+      { status: 500 },
+    );
+  }
+
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: process.env.SMTP_HOST?.trim(),
     port,
     secure: port === 465,
     requireTLS: port === 587,
+    connectionTimeout: 20_000,
+    greetingTimeout: 20_000,
+    socketTimeout: 25_000,
     auth: {
-      user: process.env.SMTP_USER,
+      user: process.env.SMTP_USER?.trim(),
       pass: process.env.SMTP_PASS,
     },
   });
@@ -80,8 +102,11 @@ export async function POST(request: Request) {
     `Správa:\n${message}`;
 
   try {
+    const from =
+      process.env.SMTP_FROM?.trim() || process.env.SMTP_USER?.trim() || "";
+
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+      from,
       to: "info@jvdcars.sk",
       replyTo: email,
       subject: "Nový dopyt z kontaktného formulára",
@@ -94,7 +119,12 @@ export async function POST(request: Request) {
       { status: 200 },
     );
   } catch (err) {
-    console.error("[contact] SMTP error:", err);
+    const e = err as Error & { code?: string; responseCode?: number };
+    console.error("[contact] SMTP error:", {
+      message: e.message,
+      code: e.code,
+      responseCode: e.responseCode,
+    });
     return NextResponse.json(
       {
         message:
