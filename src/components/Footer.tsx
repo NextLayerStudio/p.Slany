@@ -13,7 +13,7 @@ const quickLinks = [
 const serviceLinks = [
   {
     href: "/sluzby/antikorozna-ochrana-vozidiel",
-    label: "Antikorózna ochrana vozidiel",
+    label: "Autodetailing Bratislava",
   },
   {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",

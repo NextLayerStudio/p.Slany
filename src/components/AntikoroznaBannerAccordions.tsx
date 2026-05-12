@@ -85,7 +85,7 @@ export default function AntikoroznaBannerAccordions({
   return (
     <>
       <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.5rem]">
-        Ako prebieha ošetrenie podvozku?
+        Ako prebieha autodetailing?
       </h2>
 
       <div

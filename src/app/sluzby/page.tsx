@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 const services = [
   {
     href: "/sluzby/antikorozna-ochrana-vozidiel",
-    label: "Antikorózna ochrana vozidiel",
+    label: "Autodetailing Bratislava",
   },
   {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",

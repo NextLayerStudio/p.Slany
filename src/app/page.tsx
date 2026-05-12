@@ -9,7 +9,7 @@ import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 const serviceBubbleLinks = [
   {
     href: "/sluzby/antikorozna-ochrana-vozidiel",
-    label: "Antikorózna ochrana vozidiel",
+    label: "Autodetailing Bratislava",
   },
   {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",

@@ -13,7 +13,7 @@ const ANTIKOROZNA_PATH = "/sluzby/antikorozna-ochrana-vozidiel";
 const services = [
   {
     href: "/sluzby/antikorozna-ochrana-vozidiel",
-    label: "Antikorózna ochrana vozidiel",
+    label: "Autodetailing Bratislava",
   },
   {
     href: "/sluzby/dovoz-aut-z-nemecka-a-zahranicia",
@@ -52,7 +52,7 @@ export default function Navbar({
     if (isAntikoroznaPage) {
       e.preventDefault();
       document
-        .getElementById("preco-antikorozna")
+        .getElementById("preco-vybrat-nas")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
@@ -82,7 +82,7 @@ export default function Navbar({
     if (isAntikoroznaPage) {
       e.preventDefault();
       document
-        .getElementById("ako-prebieha-osetrenie")
+        .getElementById("preco-autodetailing")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
@@ -133,7 +133,7 @@ export default function Navbar({
       <nav className="mx-auto relative flex max-w-6xl items-center justify-center px-6 py-5 lg:px-10">
         <Link href="/" className="absolute left-6 lg:left-10" aria-label="JVDCars domov">
           <Image
-            src="/Logo.png"
+            src="/Logo2.webp"
             alt="JVDCars logo"
             width={170}
             height={46}
@@ -193,7 +193,7 @@ export default function Navbar({
               <Link
                 href={
                   isAntikoroznaPage
-                    ? "#preco-antikorozna"
+                    ? "#preco-vybrat-nas"
                     : isDovozNemeckoPage
                       ? "#nase-skusenosti"
                       : isKontrolaJazdenychPage
@@ -211,7 +211,7 @@ export default function Navbar({
               <Link
                 href={
                   isAntikoroznaPage
-                    ? "#ako-prebieha-osetrenie"
+                    ? "#preco-autodetailing"
                     : isDovozNemeckoPage
                       ? "#ako-to-funguje"
                       : isKontrolaJazdenychPage
@@ -303,7 +303,7 @@ export default function Navbar({
               <Link
                 href={
                   isAntikoroznaPage
-                    ? "#preco-antikorozna"
+                    ? "#preco-vybrat-nas"
                     : isDovozNemeckoPage
                       ? "#nase-skusenosti"
                       : isKontrolaJazdenychPage
@@ -323,7 +323,7 @@ export default function Navbar({
               <Link
                 href={
                   isAntikoroznaPage
-                    ? "#ako-prebieha-osetrenie"
+                    ? "#preco-autodetailing"
                     : isDovozNemeckoPage
                       ? "#ako-to-funguje"
                       : isKontrolaJazdenychPage

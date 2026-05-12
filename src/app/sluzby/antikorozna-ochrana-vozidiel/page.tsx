@@ -2,16 +2,15 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import AntikoroznaBannerAccordions from "@/components/AntikoroznaBannerAccordions";
 import { GlossySurface } from "@/components/GlossySection";
 
 export const metadata = {
-  title: "Antikorózna ochrana podvozku vozidiel | p.Slany",
+  title: "Autodetailing Bratislava | p.Slany",
   description:
-    "Profesionálna antikorózna ochrana podvozku a spodku vozidla proti korózii, vlhkosti a posypovej soli.",
+    "Profesionálny autodetailing v Bratislave – hĺbková starostlivosť o exteriér a interiér, ochrana povrchov a obnova vzhľadu vozidla.",
 };
 
-export default function AntikoroznaOchranaPage() {
+export default function AutodetailingBratislavaPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <section className="relative min-h-svh overflow-hidden text-white">
@@ -38,24 +37,17 @@ export default function AntikoroznaOchranaPage() {
                   "0 0 28px rgba(255,255,255,0.35), 0 2px 18px rgba(0,0,0,0.65)",
               }}
             >
-              Antikorózna ochrana podvozku vozidiel
+              Vráťte svojmu autu dokonalý vzhľad.
             </h1>
-            <p className="mt-4 text-xl font-semibold leading-snug text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)] sm:text-2xl">
-              – spoľahlivá ochrana pred koróziou a vlhkosťou
-            </p>
           </div>
 
           <div className="flex w-full flex-1 flex-col justify-end pt-12 sm:pt-16">
             <div className="max-w-2xl border-l-2 border-white pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
               <p className="text-base leading-relaxed text-white/95 drop-shadow-sm sm:text-lg">
-                Spodok vozidla je najviac ohrozený vlhkosťou, posypovou soľou a
-                kamienkami z vozovky. Bez kvalitnej ochrany môže korózia
-                nebadane napáchať škody.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-white/95 drop-shadow-sm sm:mt-5 sm:text-lg">
-                Ponúkame profesionálnu antikoróznu úpravu podvozku a
-                kritických miest karosérie tak, aby vaše auto vydržalo dlhé roky
-                v dobrom stave.
+                Vaše auto si zaslúži viac než len bežné umytie. Autodetailing
+                predstavuje komplexnú starostlivosť, ktorá obnovuje vzhľad
+                vozidla, chráni jeho povrchy a zároveň pomáha udržať jeho
+                hodnotu.
               </p>
             </div>
 
@@ -70,29 +62,29 @@ export default function AntikoroznaOchranaPage() {
       </section>
 
       <GlossySurface
-        id="preco-antikorozna"
+        id="preco-autodetailing"
         className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
       >
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-            Prečo je antikorózna ochrana dôležitá?
+            Pre koho je detailing vhodný.
           </h2>
-          <p className="mt-6 text-base font-normal leading-relaxed text-neutral-900 sm:text-lg">
-            <span className="mr-1.5 font-semibold" aria-hidden>
-              ✓
-            </span>
-            chráni podvozok pred hrdzou a chemickými vplyvmi, predlžuje
-            životnosť vozidla, zvyšuje bezpečnosť jazdy, zachováva vyššiu
-            hodnotu vozidla pri predaji, šetrí náklady na budúce opravy
-          </p>
-          <p className="mt-6 text-base font-normal leading-relaxed text-neutral-900 sm:mt-8 sm:text-lg">
-            Prevencia je vždy lacnejšia než riešenie rozsiahlej korózie.
-          </p>
+          <ul className="mt-6 list-disc space-y-6 pl-6 text-base font-normal text-neutral-900 sm:pl-7 sm:text-lg">
+            <li className="leading-relaxed">
+              Autodetailing je vhodný pre každého, kto chce mať svoje auto v
+              dobrom stave bez ohľadu na jeho vek.
+            </li>
+            <li className="leading-relaxed">
+              Pomáha nielen majiteľom nových vozidiel, ktorí chcú ochrániť svoju
+              investíciu, ale aj tým, ktorí pripravujú auto na predaj alebo si
+              jednoducho chcú dopriať čistý a udržiavaný interiér aj exteriér.
+            </li>
+          </ul>
         </div>
       </GlossySurface>
 
       <section
-        id="ako-prebieha-osetrenie"
+        id="ako-prebieha-autodetailing"
         className="relative scroll-mt-24 overflow-hidden py-20 text-white sm:py-28 lg:py-36"
       >
         <div
@@ -107,43 +99,121 @@ export default function AntikoroznaOchranaPage() {
           className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 xl:px-14">
-          <AntikoroznaBannerAccordions
-            steps={[
-              {
-                title: "Dôkladné čistenie a príprava podvozku",
-                body: "Odstránime nečistoty, soľ a povrchovú koróziu.",
-              },
-              {
-                title: "Kontrola stavu podvozku",
-                body: "Zhodnotíme aktuálny stav a navrhneme najvhodnejší postup ochrany.",
-              },
-              {
-                title: "Aplikácia kvalitných antikoróznych prípravkov",
-                body: "Používame overené ochranné nátery a vosky určené na dlhodobú ochranu.",
-              },
-              {
-                title: "Ošetrenie kritických miest",
-                body: "Zameriavame sa najmä na dutiny, spoje a namáhané časti podvozku.",
-              },
-            ]}
-            blocks={[
-              {
-                title: "Pre aké vozidlá je služba vhodná?",
-                body: "Nové vozidlá (prevencia korózie), jazdené vozidlá, dodávky a úžitkové vozidlá, vozidlá jazdiace v náročných podmienkach.",
-              },
-              {
-                title: "Prečo si vybrať nás?",
-                body: "Profesionálny prístup a precízna práca, kvalitné a osvedčené materiály, individuálny prístup ku každému vozidlu, férové a transparentné ceny, dlhodobý efekt ochrany.",
-              },
-              {
-                title: "Objednajte si antikoróznu ochranu",
-                body: "Doprajte svojmu vozidlu ochranu, ktorú si zaslúži. Kontaktujte nás ešte dnes a predĺžte životnosť svojho auta.",
-              },
-            ]}
-          />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-10">
+          <h2
+            className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.25rem]"
+            style={{
+              textShadow:
+                "0 0 24px rgba(255,255,255,0.25), 0 2px 14px rgba(0,0,0,0.55)",
+            }}
+          >
+            Naše služby
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base font-normal leading-relaxed text-white/95 sm:mt-8 sm:text-lg lg:text-xl">
+            Postaráme sa o vaše vozidlo zvonku aj zvnútra tak, aby pôsobilo čisto,
+            zachovalo si svoj stav a bolo príjemné na každodenné používanie.
+          </p>
+
+          <div className="mt-12 grid grid-cols-1 gap-10 sm:mt-14 sm:gap-12 md:mt-16 md:grid-cols-2 md:gap-0 md:divide-x md:divide-white/40">
+            <div className="md:pr-10 lg:pr-16">
+              <div className="flex gap-4 sm:gap-5">
+                <span
+                  className="shrink-0 text-5xl font-bold leading-none text-white tabular-nums sm:text-6xl lg:text-7xl"
+                  style={{
+                    textShadow: "0 2px 12px rgba(0,0,0,0.45)",
+                  }}
+                  aria-hidden
+                >
+                  1
+                </span>
+                <div className="min-w-0 pt-1 sm:pt-2">
+                  <h3 className="text-lg font-bold leading-snug text-white drop-shadow-sm sm:text-xl lg:text-2xl">
+                    Exteriérový detailing
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/95 drop-shadow-sm sm:mt-4 sm:text-base lg:text-lg">
+                    Exteriérový detailing zahŕňa dôkladné a bezpečné ručné umývanie,
+                    pri ktorom nedochádza k poškodeniu laku. Následne odstraňujeme
+                    nečistoty ako asfalt, živicu či brzdový prach, ktoré bežné
+                    umývanie nedokáže odstrániť. V prípade potreby realizujeme aj
+                    strojové leštenie, ktoré pomáha odstrániť jemné škrabance a
+                    obnoviť lesk karosérie. Výsledok je možné ochrániť voskom alebo
+                    keramickou ochranou, vďaka čomu bude údržba vozidla jednoduchšia.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-white/40 pt-10 md:border-t-0 md:pl-10 md:pt-0 lg:pl-16">
+              <div className="flex gap-4 sm:gap-5">
+                <span
+                  className="shrink-0 text-5xl font-bold leading-none text-white tabular-nums sm:text-6xl lg:text-7xl"
+                  style={{
+                    textShadow: "0 2px 12px rgba(0,0,0,0.45)",
+                  }}
+                  aria-hidden
+                >
+                  2
+                </span>
+                <div className="min-w-0 pt-1 sm:pt-2">
+                  <h3 className="text-lg font-bold leading-snug text-white drop-shadow-sm sm:text-xl lg:text-2xl">
+                    Interiérový detailing
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/95 drop-shadow-sm sm:mt-4 sm:text-base lg:text-lg">
+                    Interiérový detailing sa zameriava na hĺbkové čistenie a celkový
+                    komfort vo vnútri vozidla. Pomocou tepovania odstraňujeme
+                    nečistoty zo sedadiel a kobercov, čistíme plasty aj kožené
+                    povrchy a venujeme sa aj miestam, ktoré sa pri bežnom čistení
+                    často prehliadajú. Súčasťou je aj odstránenie zápachu, baktérií
+                    a dezinfekcia, vďaka čomu je interiér nielen čistý, ale aj
+                    hygienický.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 border-t border-white/40 pt-10 sm:mt-12 sm:pt-12 md:mt-14 md:pt-14">
+            <div className="flex gap-4 sm:gap-5">
+              <span
+                className="shrink-0 text-5xl font-bold leading-none text-white tabular-nums sm:text-6xl lg:text-7xl"
+                style={{
+                  textShadow: "0 2px 12px rgba(0,0,0,0.45)",
+                }}
+                aria-hidden
+              >
+                3
+              </span>
+              <div className="min-w-0 pt-1 sm:pt-2">
+                <h3 className="text-lg font-bold leading-snug text-white drop-shadow-sm sm:text-xl lg:text-2xl">
+                  Keramická ochrana laku
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/95 drop-shadow-sm sm:mt-4 sm:text-base lg:text-lg">
+                  Dôležitou súčasťou služieb je aj ochrana vozidla. Keramická ochrana
+                  laku vytvára vrstvu, ktorá odpudzuje vodu a nečistoty, chráni lak
+                  pred UV žiarením a zároveň uľahčuje jeho údržbu. Ide o riešenie,
+                  ktoré ocení každý, kto chce mať auto dlhodobo v dobrom stave.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+      <GlossySurface
+        id="preco-vybrat-nas"
+        className="scroll-mt-24 py-16 sm:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+            Prečo si vybrať nás
+          </h2>
+          <p className="mt-6 text-base font-normal leading-relaxed text-neutral-900 sm:mt-8 sm:text-lg">
+            Pri práci kladieme dôraz najmä na kvalitu a detail. Používame overené
+            produkty a postupy, ktoré sú šetrné k vozidlu, no zároveň prinášajú
+            viditeľné výsledky. Každé auto berieme individuálne a snažíme sa nájsť
+            riešenie, ktoré mu najviac vyhovuje.
+          </p>
+        </div>
+      </GlossySurface>
 
       <section
         id="kontakt"
