@@ -12,53 +12,55 @@ export const metadata = {
 
 export default function AutodetailingBratislavaPage() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <section className="relative min-h-svh overflow-hidden text-white">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
+    <div className="relative flex min-h-screen flex-col">
+      {/* Jedno zdieľané pozadie – pri scrollovaní ostáva statické, posúva sa len obsah. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/banner_background_2.jpg')",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+      />
 
-        <Navbar transparent variant="full" />
+      <div className="relative z-10 flex min-h-screen flex-col">
+        <section className="relative min-h-svh text-white">
+          <Navbar transparent variant="full" />
 
-        <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
-          <div className="mt-12 max-w-4xl sm:mt-20 lg:mt-28">
-            <h1
-              className="font-bold leading-tight tracking-tight text-white text-[clamp(1.35rem,3.6vw+0.5rem,3.5rem)] max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)]"
-              style={{
-                textShadow:
-                  "0 0 28px rgba(255,255,255,0.35), 0 2px 18px rgba(0,0,0,0.65)",
-              }}
-            >
-              Vráťte svojmu autu dokonalý vzhľad.
-            </h1>
-          </div>
-
-          <div className="flex w-full flex-1 flex-col justify-end pt-12 sm:pt-16">
-            <div className="max-w-2xl border-l-2 border-white pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
-              <p className="text-base leading-relaxed text-white/95 drop-shadow-sm sm:text-lg">
-                Vaše auto si zaslúži viac než len bežné umytie. Autodetailing
-                predstavuje komplexnú starostlivosť, ktorá obnovuje vzhľad
-                vozidla, chráni jeho povrchy a zároveň pomáha udržať jeho
-                hodnotu.
-              </p>
+          <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
+            <div className="mt-12 max-w-4xl sm:mt-20 lg:mt-28">
+              <h1
+                className="font-bold leading-tight tracking-tight text-white text-[clamp(1.35rem,3.6vw+0.5rem,3.5rem)] max-sm:text-[clamp(2rem,8vw+1rem,2.85rem)]"
+                style={{
+                  textShadow:
+                    "0 0 28px rgba(255,255,255,0.35), 0 2px 18px rgba(0,0,0,0.65)",
+                }}
+              >
+                Vráťte svojmu autu dokonalý vzhľad.
+              </h1>
             </div>
 
-            <Link
-              href="#kontakt"
-              className="mt-10 inline-flex w-fit items-center justify-center self-start rounded-full border-2 border-white px-5 py-3 text-base font-medium text-white transition hover:bg-white hover:text-slate-900 sm:mt-10 sm:px-6 sm:text-lg"
-            >
-              Kontakt
-            </Link>
+            <div className="flex w-full flex-1 flex-col justify-end pt-12 sm:pt-16">
+              <div className="max-w-2xl border-l-2 border-white pl-6 sm:pl-8 [font-family:var(--font-alexandria),system-ui,sans-serif]">
+                <p className="text-base leading-relaxed text-white/95 drop-shadow-sm sm:text-lg">
+                  Vaše auto si zaslúži viac než len bežné umytie. Autodetailing
+                  predstavuje komplexnú starostlivosť, ktorá obnovuje vzhľad
+                  vozidla, chráni jeho povrchy a zároveň pomáha udržať jeho
+                  hodnotu.
+                </p>
+              </div>
+
+              <Link
+                href="#kontakt"
+                className="mt-10 inline-flex w-fit items-center justify-center self-start rounded-full border-2 border-white px-5 py-3 text-base font-medium text-white transition hover:bg-white hover:text-slate-900 sm:mt-10 sm:px-6 sm:text-lg"
+              >
+                Kontakt
+              </Link>
+            </div>
           </div>
-        </div>
       </section>
 
       <GlossySurface
@@ -85,21 +87,9 @@ export default function AutodetailingBratislavaPage() {
 
       <section
         id="ako-prebieha-autodetailing"
-        className="relative scroll-mt-24 overflow-hidden py-20 text-white sm:py-28 lg:py-36"
+        className="relative scroll-mt-24 py-20 text-white sm:py-28 lg:py-36"
       >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
-
-        <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
           <h2
             className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.25rem]"
             style={{
@@ -277,6 +267,7 @@ export default function AutodetailingBratislavaPage() {
       </section>
 
       <Footer />
+      </div>
     </div>
   );
 }

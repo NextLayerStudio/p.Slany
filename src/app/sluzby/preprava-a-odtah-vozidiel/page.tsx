@@ -12,20 +12,21 @@ export const metadata = {
 
 export default function PrepravaOdtahPage() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <section className="relative min-h-svh overflow-hidden text-white">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
+    <div className="relative flex min-h-screen flex-col">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/banner_background_2.jpg')",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+      />
 
+      <div className="relative z-10 flex min-h-screen flex-col">
+      <section className="relative min-h-svh text-white">
         <Navbar transparent variant="full" />
 
         <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
@@ -99,21 +100,14 @@ export default function PrepravaOdtahPage() {
 
       <section
         id="preco-odtahova-sluzba"
-        className="relative scroll-mt-24 overflow-hidden py-16 text-white sm:py-20 lg:py-24"
+        className="relative scroll-mt-24 py-16 text-white sm:py-20 lg:py-24"
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/38 via-black/32 to-black/45"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/38 via-black/32 to-black/45"
         />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
           <h2 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Prečo si vybrať našu odťahovú službu?
           </h2>
@@ -216,6 +210,7 @@ export default function PrepravaOdtahPage() {
       </section>
 
       <Footer />
+      </div>
     </div>
   );
 }

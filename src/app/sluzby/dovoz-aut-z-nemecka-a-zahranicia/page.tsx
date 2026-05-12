@@ -13,20 +13,21 @@ export const metadata = {
 
 export default function DovozNemeckoPage() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <section className="relative min-h-svh overflow-hidden text-white">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
+    <div className="relative flex min-h-screen flex-col">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/banner_background_2.jpg')",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+      />
 
+      <div className="relative z-10 flex min-h-screen flex-col">
+      <section className="relative min-h-svh text-white">
         <Navbar transparent variant="full" />
 
         <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start px-6 pb-8 pt-32 sm:pb-10 lg:px-10">
@@ -113,24 +114,17 @@ export default function DovozNemeckoPage() {
         </div>
       </GlossySurface>
 
-      {/* Ako to funguje – kroky (rovnaký obrázok ako banner) */}
+      {/* Ako to funguje – rovnaké fixné pozadie ako banner, temnejší preliv len v tejto časti */}
       <section
         id="ako-to-funguje"
-        className="relative scroll-mt-24 overflow-hidden text-white"
+        className="relative scroll-mt-24 text-white"
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/50 to-black/60"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/50 to-black/60"
         />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-10 lg:py-24">
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-10 lg:py-24">
           <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Ako to funguje?
           </h2>
@@ -344,6 +338,7 @@ export default function DovozNemeckoPage() {
       </section>
 
       <Footer />
+      </div>
     </div>
   );
 }

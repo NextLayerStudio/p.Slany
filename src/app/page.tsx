@@ -27,20 +27,22 @@ const serviceBubbleLinks = [
 
 export default function Home() {
   return (
-    <>
+    <div className="relative flex min-h-screen flex-col">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/banner_background_2.jpg')",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
+      />
+
+      <div className="relative z-10 flex min-h-screen flex-col">
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-svh overflow-hidden text-white">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
+      <section className="relative min-h-svh text-white">
         <Navbar transparent variant="home" />
         <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col items-start justify-center px-6 pb-24 pt-32 lg:px-10">
           <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
@@ -98,19 +100,8 @@ export default function Home() {
         </div>
       </GlossySurface>
 
-      {/* ── Dovoz áut – dlhá sekcia (rovnaký obrázok ako banner) ─────────────── */}
+      {/* ── Dovoz áut – dlhá sekcia (zdieľané fixné pozadie) ─────────────── */}
       <section className="relative overflow-hidden text-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:px-10 lg:py-32">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Dovoz áut z Nemecka a zahraničia
@@ -246,19 +237,8 @@ export default function Home() {
         </div>
       </GlossySurface>
 
-      {/* ── Sprostredkovanie predaja – dlhá sekcia (banner + modrá „bublina“) ── */}
+      {/* ── Sprostredkovanie predaja – dlhá sekcia (zdieľané fixné pozadie) ── */}
       <section className="relative overflow-hidden text-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/banner_background_2.jpg')",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-black/22 via-black/18 to-black/28"
-        />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:px-10 lg:py-32">
           <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Sprostredkovanie predaja vozidiel
@@ -370,6 +350,7 @@ export default function Home() {
       </section>
 
       <Footer />
-    </>
+      </div>
+    </div>
   );
 }
