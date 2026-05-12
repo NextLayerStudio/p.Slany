@@ -46,21 +46,21 @@ export default function PrepravaOdtahPage() {
 
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
               <a
-                href="mailto:info@pslany.sk"
+                href="mailto:info@jvdcars.sk"
                 className="inline-flex items-center gap-2.5 text-base font-medium text-white/95 drop-shadow-sm transition hover:text-white sm:text-lg"
               >
                 <EnvelopeIcon
                   className="h-6 w-6 shrink-0 opacity-95"
                   aria-hidden
                 />
-                info@pslany.sk
+                info@jvdcars.sk
               </a>
               <a
-                href="tel:+421900000000"
+                href="tel:+421903286677"
                 className="inline-flex items-center gap-2.5 text-base font-medium text-white/95 drop-shadow-sm transition hover:text-white sm:text-lg"
               >
                 <PhoneIcon className="h-6 w-6 shrink-0 opacity-95" aria-hidden />
-                +421 900 000 000
+                +421 903 286 677
               </a>
             </div>
           </div>
@@ -178,10 +178,10 @@ export default function PrepravaOdtahPage() {
                   Telefón
                 </p>
                 <a
-                  href="tel:+421900000000"
+                  href="tel:+421903286677"
                   className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
-                  +421 900 000 000
+                  +421 903 286 677
                 </a>
               </div>
               <div>
@@ -189,10 +189,10 @@ export default function PrepravaOdtahPage() {
                   E-mail
                 </p>
                 <a
-                  href="mailto:info@pslany.sk"
+                  href="mailto:info@jvdcars.sk"
                   className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
-                  info@pslany.sk
+                  info@jvdcars.sk
                 </a>
               </div>
               <div>

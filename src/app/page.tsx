@@ -170,18 +170,18 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-col gap-4 pl-6 sm:pl-8">
                   <a
-                    href="mailto:email.random@gmail.com"
+                    href="mailto:info@jvdcars.sk"
                     className="inline-flex items-center gap-3 text-base text-white transition hover:text-white/85"
                   >
                     <EnvelopeIcon className="h-5 w-5 shrink-0 opacity-90" aria-hidden />
-                    email.random@gmail.com
+                    info@jvdcars.sk
                   </a>
                   <a
-                    href="tel:+421904445380"
+                    href="tel:+421903286677"
                     className="inline-flex items-center gap-3 text-base text-white transition hover:text-white/85"
                   >
                     <PhoneIcon className="h-5 w-5 shrink-0 opacity-90" aria-hidden />
-                    +421 904 445 380
+                    +421 903 286 677
                   </a>
                 </div>
               </div>
@@ -318,10 +318,10 @@ export default function Home() {
                   Telefón
                 </p>
                 <a
-                  href="tel:+421900000000"
+                  href="tel:+421903286677"
                   className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
-                  +421 900 000 000
+                  +421 903 286 677
                 </a>
               </div>
               <div>

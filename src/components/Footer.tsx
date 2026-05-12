@@ -119,26 +119,26 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="mailto:email.random@gmail.com"
+                  href="mailto:info@jvdcars.sk"
                   className="inline-flex items-center gap-2.5 text-sm text-neutral-950 transition hover:underline"
                 >
                   <EnvelopeIcon
                     className="h-5 w-5 shrink-0 opacity-95"
                     aria-hidden
                   />
-                  email.random@gmail.com
+                  info@jvdcars.sk
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+421904445380"
+                  href="tel:+421903286677"
                   className="inline-flex items-center gap-2.5 text-sm text-neutral-950 transition hover:underline"
                 >
                   <PhoneIcon
                     className="h-5 w-5 shrink-0 opacity-95"
                     aria-hidden
                   />
-                  +421 904 445 380
+                  +421 903 286 677
                 </a>
               </li>
             </ul>

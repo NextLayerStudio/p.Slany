@@ -306,10 +306,10 @@ export default function DovozNemeckoPage() {
                   Telefón
                 </p>
                 <a
-                  href="tel:+421900000000"
+                  href="tel:+421903286677"
                   className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
-                  +421 900 000 000
+                  +421 903 286 677
                 </a>
               </div>
               <div>
@@ -317,10 +317,10 @@ export default function DovozNemeckoPage() {
                   E-mail
                 </p>
                 <a
-                  href="mailto:info@pslany.sk"
+                  href="mailto:info@jvdcars.sk"
                   className="mt-1 block text-xl font-semibold text-white drop-shadow-sm transition hover:text-sky-300"
                 >
-                  info@pslany.sk
+                  info@jvdcars.sk
                 </a>
               </div>
               <div>
