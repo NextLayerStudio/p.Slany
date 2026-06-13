@@ -27,7 +27,7 @@ export default function CookiesPage() {
           <p className="mt-5 text-base leading-relaxed text-neutral-700 sm:text-lg">
             Táto stránka vysvetľuje, čo sú cookies, ako ich používame na webe
             JVDCars a ako môžete spravovať svoje preferencie. Firemné údaje
-            prevádzkovateľa doplníme v sekcii{" "}
+            prevádzkovateľa nájdete v sekcii{" "}
             <Link
               href="/informacie-o-firme"
               className="font-semibold text-[#2d6f94] underline underline-offset-4 transition hover:text-[#4190BD]"

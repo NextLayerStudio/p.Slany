@@ -144,7 +144,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-neutral-900/15 pt-6 text-center text-xs text-neutral-600">
-          © {new Date().getFullYear()} jvdcars. Všetky práva vyhradené.
+          © {new Date().getFullYear()} JVD real s.r.o. Všetky práva vyhradené.
         </div>
       </div>
     </GlossySurface>
