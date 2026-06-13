@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { GlossySurface } from "@/components/GlossySection";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 
 const quickLinks = [
   { href: "/", label: "Domov" },
@@ -92,7 +93,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            <p className="mt-8 text-base font-bold">Cookies &amp; OP</p>
+            <p className="mt-8 text-base font-bold">Cookies</p>
             <ul className="mt-4 space-y-2.5">
               <li>
                 <Link
@@ -103,12 +104,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/obchodne-podmienky"
-                  className="text-sm text-neutral-950 transition hover:underline"
-                >
-                  Obchodné podmienky
-                </Link>
+                <CookieSettingsButton className="text-left text-sm text-neutral-950 transition hover:underline">
+                  Nastavenia cookies
+                </CookieSettingsButton>
               </li>
             </ul>
           </div>
@@ -146,7 +144,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-neutral-900/15 pt-6 text-center text-xs text-neutral-600">
-          © {new Date().getFullYear()} p.Slany. Všetky práva vyhradené.
+          © {new Date().getFullYear()} jvdcars. Všetky práva vyhradené.
         </div>
       </div>
     </GlossySurface>
