@@ -59,6 +59,8 @@ export default function ContactForm() {
           name="email"
           placeholder="E-mail"
           required
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+          title="Zadajte platnú e-mailovú adresu, napr. meno@email.sk"
           className="w-full rounded-xl border border-white/50 bg-white/20 px-4 py-3 text-base font-medium text-white placeholder:text-white/90 outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-sm transition focus:border-white/85 focus:bg-white/25 focus:text-white focus:placeholder:text-white/95 focus:ring-2 focus:ring-white/45"
         />
       </div>

@@ -16,6 +16,14 @@ const REQUIRED_SMTP_ENV = [
 
 const MAIL_TO = "info@jvdcars.sk";
 
+function getResendApiKey() {
+  return (
+    process.env.Resend_API_JVDcars?.trim() ||
+    process.env.RESEND_API_KEY?.trim() ||
+    ""
+  );
+}
+
 function getMissingSmtpEnvKeys() {
   return REQUIRED_SMTP_ENV.filter((key) => {
     const v = process.env[key];
@@ -38,14 +46,18 @@ function getStringValue(formData: FormData, key: string) {
   return value.trim();
 }
 
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 async function sendViaResend(
   from: string,
   replyTo: string,
   html: string,
   text: string,
 ) {
-  const key = process.env.RESEND_API_KEY?.trim();
-  if (!key) throw new Error("RESEND_API_KEY missing");
+  const key = getResendApiKey();
+  if (!key) throw new Error("Resend_API_JVDcars missing");
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -116,7 +128,7 @@ async function sendViaSmtp(
 
 /** Safe diagnostics: open GET /api/contact in the browser to verify env on Vercel (no secrets returned). */
 export async function GET() {
-  const useResend = Boolean(process.env.RESEND_API_KEY?.trim());
+  const useResend = Boolean(getResendApiKey());
   const missing = getMissingSmtpEnvKeys();
   return NextResponse.json({
     ok: true,
@@ -148,6 +160,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { message: "Zadajte platnú e-mailovú adresu (napr. meno@email.sk)." },
+        { status: 400 },
+      );
+    }
+
     const htmlMessage = `
     <h2>Nová správa z kontaktného formulára</h2>
     <p><strong>Meno:</strong> ${escapeHtml(name)}</p>
@@ -171,7 +190,7 @@ export async function POST(request: Request) {
       process.env.SMTP_FROM?.trim() ||
       "";
 
-    const useResend = Boolean(process.env.RESEND_API_KEY?.trim());
+    const useResend = Boolean(getResendApiKey());
     const from = useResend
       ? fromResend || "Kontakt <onboarding@resend.dev>"
       : fromSmtp;
